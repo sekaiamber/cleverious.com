@@ -35,7 +35,14 @@ $ npm run dev
 
 ## Depoly
 
+Deploy static files with following step.
 
+1. Build static files.
+```shell
+$ npm run deploy
+```
+
+2. Find static files in `root/dist/`.
 
 ## Version
 
