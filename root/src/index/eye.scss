@@ -1,0 +1,14 @@
+.eye-container {
+  height: 200px;
+  position: relative;
+  img.eye-frame {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 100px);
+    opacity: 0;
+  }
+  img.eye-frame.show {
+    opacity: 1;
+  }
+}
