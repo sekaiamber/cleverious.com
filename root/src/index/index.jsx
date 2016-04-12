@@ -22,6 +22,11 @@ var Index = React.createClass({
   render: function () {
     return (
       <div className="container">
+        <VelocityComponent animation={{opacity: this.state.imgLoading ? 0 : 1 }} duration={2500} delay={1000}>
+          <div className="homepage-bg-mask">
+            <div className="homepage-bg-mask-img" style={{backgroundImage: `url(${Images['home-page-bg.png'].src})`}}></div>
+          </div>
+        </VelocityComponent>
         <div className="velocity-span">
           <VelocityTransitionGroup
             enter={{animation: { opacity: [1, 0], translateY: [0, 50] }, duration: 1000 }}

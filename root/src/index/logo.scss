@@ -10,8 +10,16 @@
     }
   }
   .logo-coming-soon {
-    font-size: 20px;
-    color: #989896;
+    font-family: 'sinkinsans100';
+    font-size: 28px;
+    color: #ABABA1;
     margin-top: 50px;
   }
+}
+@font-face {font-family: "sinkinsans100";
+  src: url('./../../assets/fonts/SinkinSans-100Thin.eot'); /* IE9*/
+  src: url('./../../assets/fonts/SinkinSans-100Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./../../assets/fonts/SinkinSans-100Thin.woff') format('woff'), /* chrome, firefox */
+  url('./../../assets/fonts/SinkinSans-100Thin.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('./../../assets/fonts/SinkinSans-100Thin.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
