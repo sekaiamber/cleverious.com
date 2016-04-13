@@ -1,11 +1,11 @@
 .eye-container {
-  height: 200px;
+  height: 180px;
   position: relative;
   img.eye-frame {
     height: 100%;
     position: absolute;
     top: 0;
-    left: calc(50% - 100px);
+    left: calc(50% - 90px);
     opacity: 0;
   }
   img.eye-frame.show {

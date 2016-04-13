@@ -1,5 +1,5 @@
 .clv-canvas {
-  height: 360px;
+  height: 310px;
   .logo-text {
     height: 50px;
     line-height: 50px;
@@ -7,19 +7,13 @@
     img {
       vertical-align: middle;
       width: 300px;
+      margin-left: 8px;
     }
   }
   .logo-coming-soon {
-    font-family: 'sinkinsans100';
-    font-size: 28px;
+    font-size: 20px;
     color: #ABABA1;
-    margin-top: 50px;
+    margin-top: 20px;
+    font-weight: 100;
   }
-}
-@font-face {font-family: "sinkinsans100";
-  src: url('./../../assets/fonts/SinkinSans-100Thin.eot'); /* IE9*/
-  src: url('./../../assets/fonts/SinkinSans-100Thin.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('./../../assets/fonts/SinkinSans-100Thin.woff') format('woff'), /* chrome, firefox */
-  url('./../../assets/fonts/SinkinSans-100Thin.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('./../../assets/fonts/SinkinSans-100Thin.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
