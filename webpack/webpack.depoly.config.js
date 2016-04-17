@@ -13,7 +13,7 @@ var config = {
   },
   output: {
       path: path.join(__dirname, '..', '/root/dist'),
-      publicPath: 'http://assets.cleverious.com',
+      publicPath: 'http://assets.cleverious.com/',
       filename: '[name].bundle.[hash].js',
   },
   plugins: [
