@@ -41,6 +41,7 @@ const Images = {
     list = list || this.names;
     var self = this;
     var cb = ((name) => {
+      console.log(name);
       var fg = true;
       for (var i = 0; i < list.length; i++) {
         if (self.names.indexOf(list[i]) > -1) {
