@@ -40,10 +40,31 @@ body {
         background-size: cover;
       }
     }
+    .page-container {
+      // height: 100%;
+      display: table-cell;
+      vertical-align: middle;
+      width: 100%;
+    }
   }
   .velocity-span {
     position: absolute;
     width: 100%;
     transform: translateY(-50%);
+  }
+  // main page
+  .main-page {
+    height: 100%;
+    overflow: auto;
+    .page-changer {
+      height: 100%;
+      .page-changer-item {
+        height: 100%;
+        position: relative;
+        display: table !important;
+        table-layout: fixed;
+        width: 100%;
+      }
+    }
   }
 }
