@@ -1,7 +1,7 @@
 import { VelocityComponent, VelocityTransitionGroup } from 'velocity-react';
 const React = require('react');
 const classnames = require('classnames');
-const Images = require('../components/Images');
+const Images = require('../../../components/Images');
 require('./eye.scss');
 
 var Eye = React.createClass({

@@ -3,8 +3,13 @@ import { VelocityComponent, VelocityTransitionGroup } from 'velocity-react';
 const React = require('react');
 const classnames = require('classnames');
 const Images = require('../components/Images');
-const Logo = require('./logo');
+const Changer = require('../components/contentChanger/contentChanger');
+const $ = require('jquery');
 require('./index.scss');
+// pages
+const PageContainer = require('./pages/pageContainer');
+const Logo = require('./pages/logo/logo');
+const About = require('./pages/about/about');
 
 var Index = React.createClass({
   getInitialState() {
@@ -18,6 +23,15 @@ var Index = React.createClass({
       theme: 'light',
       imgLoading: true,
     };
+  },
+  handlePageChange(dom, idx) {
+    let $dom = $(dom);
+    $(this.refs.mainPage).animate({
+      scrollTop: $dom.position().top,
+    }, {
+      duration: 700,
+      // easing: 'easeInOutQuart'
+    });
   },
   render: function () {
     return (
@@ -34,8 +48,13 @@ var Index = React.createClass({
             {this.state.imgLoading ? <div className="clv-loading"><Spin size="large" /></div> : null}
           </VelocityTransitionGroup>
         </div>
-        <div className="velocity-span">
-            {this.state.imgLoading ? null : <Logo delay={1000}/>}
+        <div className="velocity-span main-page" ref="mainPage">
+            {this.state.imgLoading ? null :
+              <Changer onChange={this.handlePageChange}>
+                <PageContainer><Logo delay={1000}/></PageContainer>
+                <PageContainer><About /></PageContainer>
+              </Changer>
+            }
         </div>
       </div>
     )

@@ -1,7 +1,7 @@
 import { QueueAnim } from 'antd';
 const React = require('react');
 const classnames = require('classnames');
-const Images = require('../components/Images');
+const Images = require('../../../components/Images');
 const Eye = require('./eye');
 require('./logo.scss');
 

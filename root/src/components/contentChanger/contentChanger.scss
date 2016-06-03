@@ -1,0 +1,28 @@
+.page-changer-anchors {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 100;
+  .page-changer-anchor {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: #ABABA1;
+  }
+  .page-changer-anchor.active {
+    color: rgb(251, 251, 239);
+  }
+}
+.page-changer {
+  
+  .page-changer-item {
+    // display: none;
+  }
+  .page-changer-item.active {
+    // display: block;
+  }
+}
