@@ -5,25 +5,43 @@ const Portal = require('../portal');
 require('./contentChanger.scss');
 
 var Changer = React.createClass({
+  items: [],
   getInitialState() {
     var self = this;
     return {
       current: 0,
     };
   },
-  anchorClickHandle(idx, e) {
+  componentDidMount() {
+    if (this.props.onInit) {
+      this.props.onInit(this.items);
+    }
+    let self = this;
+    window.addEventListener('resize', () => {
+      if (self.props.onResize) self.props.onResize(self.items);
+    }, false);
+  },
+  handleAnchorClick(idx, e) {
     if (idx == this.state.current) {
       return
     }
     let self = this;
     this.setState({current: idx}, () => {
       if (self.props.onChange) {
-        self.props.onChange(this.refs[`item_${idx}`], idx);
+        self.props.onChange(this.items[idx], idx, this.items, true);
       }
     });
   },
-  componentDidUpdate() {
-    
+  setCurrent(idx) {
+    if (idx == this.state.current) {
+      return
+    }
+    let self = this;
+    this.setState({current: idx}, () => {
+      if (self.props.onChange) {
+        self.props.onChange(this.items[idx], idx, this.items, false);
+      }
+    });
   },
   render() {
     return (
@@ -33,7 +51,7 @@ var Changer = React.createClass({
           {React.Children.map(this.props.children, (element, idx) => {
             var classNames = classnames('page-changer-anchor', {active: idx == this.state.current})
             return (
-              <div className={classNames} ref={`anchor_${idx}`} onClick={e => this.anchorClickHandle(idx, e)}>
+              <div className={classNames} ref={`anchor_${idx}`} onClick={e => this.handleAnchorClick(idx, e)}>
                 <Icon type="eye-o" />
               </div>
             )
@@ -43,7 +61,12 @@ var Changer = React.createClass({
         {React.Children.map(this.props.children, (element, idx) => {
           var classNames = classnames('page-changer-item', {active: idx == this.state.current})
           return (
-            <div className={classNames} ref={`item_${idx}`}>
+            <div className={classNames} ref={(c) => {
+              if (!this.items[`item_${idx}`]) {
+                this.items.push(c);
+                this.items[`item_${idx}`] = c;
+              }
+            }}>
               {element}
             </div>
           )

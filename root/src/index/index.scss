@@ -41,7 +41,6 @@ body {
       }
     }
     .page-container {
-      // height: 100%;
       display: table-cell;
       vertical-align: middle;
       width: 100%;
@@ -67,4 +66,16 @@ body {
       }
     }
   }
+}
+// Logo page
+
+// about page
+body.about {
+  .page-changer-anchor.active {
+    color: rgb(64, 64, 85);
+  }
+}
+.page-container.about {
+  background: #fff;
+  color: #666;
 }

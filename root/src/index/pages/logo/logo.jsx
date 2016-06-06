@@ -1,4 +1,4 @@
-import { QueueAnim } from 'antd';
+import QueueAnim from 'rc-queue-anim';
 const React = require('react');
 const classnames = require('classnames');
 const Images = require('../../../components/Images');
