@@ -71,6 +71,7 @@ var Changer = React.createClass({
             </div>
           )
         })}
+        {this.props.footer}
       </div>
     )
   }

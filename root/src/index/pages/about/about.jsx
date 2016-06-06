@@ -1,7 +1,7 @@
-import { QueueAnim } from 'antd';
 const React = require('react');
 const classnames = require('classnames');
 const Images = require('../../../components/Images');
+require('./about.scss');
 
 var About = React.createClass({
 
@@ -11,8 +11,8 @@ var About = React.createClass({
   },
   render: function () {
     return (
-      <div className="a">
-      aaa
+      <div className="page-about">
+      关于我们
       </div>
     )
   }
