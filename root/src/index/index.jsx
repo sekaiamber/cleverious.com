@@ -10,6 +10,7 @@ require('./index.scss');
 const PageContainer = require('./pages/pageContainer');
 const Logo = require('./pages/logo/logo');
 const About = require('./pages/about/about');
+const Clothes = require('./pages/clothes/clothes');
 
 var Index = React.createClass({
   getInitialState() {
@@ -24,15 +25,54 @@ var Index = React.createClass({
       imgLoading: true,
     };
   },
-  handlePageChange(dom, idx) {
+  // handle page change
+  offsets: [0],
+  offsetsMid: [],
+  autoScrolling: false,
+  handlePageChange(dom, idx, doms, auto) {
     let $dom = $(dom);
-    $(this.refs.mainPage).animate({
-      scrollTop: $dom.position().top,
-    }, {
-      duration: 700,
-      // easing: 'easeInOutQuart'
-    });
+    $('body').removeClass('logo about').addClass($('.page-container', $dom).attr('page'));
+    if (auto) {
+      let self = this;
+      this.autoScrolling = true;
+      $(this.mainPage).stop().animate({
+        scrollTop: this.offsets[idx],
+      }, {
+        duration: 700,
+        // easing: 'easeInOutQuart',
+        complete: () => {
+          self.autoScrolling = false;
+        }
+      });
+    }
   },
+  handlePageChangeInit(pages) {
+    $('body').addClass('logo');
+    this.handleWindowResize(pages);
+  },
+  handleWindowResize(pages) {
+    for (var i = 0; i < pages.length - 1; i++) {
+      this.offsets[i + 1] = this.offsets[i] + $(pages[i]).outerHeight();
+      this.offsetsMid[i] = this.offsets[i] + $(pages[i]).outerHeight() / 2;
+    }
+  },
+  componentDidMount() {
+    // handle page scroll
+    let self = this;
+    $(this.mainPage).scroll((e) => {
+      if (!self.autoScrolling) {
+        for (var i = 0; i < self.offsetsMid.length; i++) {
+          if (self.offsetsMid[i] > self.mainPage.scrollTop) {
+            break
+          }
+        }
+        if (i !== self.Changer.state.current) {
+          self.Changer.setCurrent(i);
+        }
+      }
+    })
+  },
+  
   render: function () {
     return (
       <div className="container">
@@ -48,11 +88,12 @@ var Index = React.createClass({
             {this.state.imgLoading ? <div className="clv-loading"><Spin size="large" /></div> : null}
           </VelocityTransitionGroup>
         </div>
-        <div className="velocity-span main-page" ref="mainPage">
+        <div className="velocity-span main-page" ref={(c) => this.mainPage = c}>
             {this.state.imgLoading ? null :
-              <Changer onChange={this.handlePageChange}>
-                <PageContainer><Logo delay={1000}/></PageContainer>
-                <PageContainer><About /></PageContainer>
+              <Changer onChange={this.handlePageChange} onInit={this.handlePageChangeInit} onResize={this.handleWindowResize} ref={(c) => this.Changer = c}>
+                <PageContainer name="logo"><Logo delay={1000}/></PageContainer>
+                <PageContainer name="about"><About /></PageContainer>
+                <PageContainer name="clothes"><Clothes /></PageContainer>
               </Changer>
             }
         </div>

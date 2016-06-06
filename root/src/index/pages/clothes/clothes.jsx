@@ -3,7 +3,7 @@ const React = require('react');
 const classnames = require('classnames');
 const Images = require('../../../components/Images');
 
-var About = React.createClass({
+var Clothes = React.createClass({
 
   getInitialState() {
     return {
@@ -12,10 +12,10 @@ var About = React.createClass({
   render: function () {
     return (
       <div className="a">
-      aaa
+      bbb
       </div>
     )
   }
 });
 
-module.exports = About;
+module.exports = Clothes;
