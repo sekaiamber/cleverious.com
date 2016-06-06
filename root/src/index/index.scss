@@ -7,6 +7,7 @@ html, body, #main {
 body {
   background: rgb(64, 64, 85);
   background: radial-gradient(rgb(80, 80, 100), rgb(46, 45, 60));
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",SimSun,sans-serif;
 }
 #main {
   position: relative;
@@ -30,6 +31,7 @@ body {
       height: 100%;
       width: 100%;
       background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .3));
+      z-index: -100;
       .homepage-bg-mask-img {
         pointer-events: none;
         width: 100%;
@@ -68,14 +70,25 @@ body {
   }
 }
 // Logo page
+body.logo {
+  .footer-image {
+    display: none;
+  }
+}
+
+// clothes page
+body.clothes {
+  .footer-image {
+    display: none;
+  }
+  .page-changer-anchor.active {
+    color: rgb(64, 64, 85);
+  }
+}
 
 // about page
 body.about {
   .page-changer-anchor.active {
     color: rgb(64, 64, 85);
   }
-}
-.page-container.about {
-  background: #fff;
-  color: #666;
 }

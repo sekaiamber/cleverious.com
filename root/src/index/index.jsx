@@ -11,6 +11,8 @@ const PageContainer = require('./pages/pageContainer');
 const Logo = require('./pages/logo/logo');
 const About = require('./pages/about/about');
 const Clothes = require('./pages/clothes/clothes');
+// footer
+const Footer = require('./footer/footer');
 
 var Index = React.createClass({
   getInitialState() {
@@ -31,7 +33,7 @@ var Index = React.createClass({
   autoScrolling: false,
   handlePageChange(dom, idx, doms, auto) {
     let $dom = $(dom);
-    $('body').removeClass('logo about').addClass($('.page-container', $dom).attr('page'));
+    $('body').removeClass('logo about clothes').addClass($('.page-container', $dom).attr('page'));
     if (auto) {
       let self = this;
       this.autoScrolling = true;
@@ -90,10 +92,16 @@ var Index = React.createClass({
         </div>
         <div className="velocity-span main-page" ref={(c) => this.mainPage = c}>
             {this.state.imgLoading ? null :
-              <Changer onChange={this.handlePageChange} onInit={this.handlePageChangeInit} onResize={this.handleWindowResize} ref={(c) => this.Changer = c}>
+              <Changer
+                onChange={this.handlePageChange}
+                onInit={this.handlePageChangeInit}
+                onResize={this.handleWindowResize}
+                ref={(c) => this.Changer = c}
+                footer={<Footer />}
+              >
                 <PageContainer name="logo"><Logo delay={1000}/></PageContainer>
-                <PageContainer name="about"><About /></PageContainer>
                 <PageContainer name="clothes"><Clothes /></PageContainer>
+                <PageContainer name="about"><About /></PageContainer>
               </Changer>
             }
         </div>
