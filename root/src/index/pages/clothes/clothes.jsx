@@ -12,6 +12,7 @@ var Clothes = React.createClass({
     };
   },
   componentDidMount() {
+    // get overview
     jsonp('overview').done(function (data) {
       console.log(data);
     });
