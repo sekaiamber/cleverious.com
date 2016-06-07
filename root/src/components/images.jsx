@@ -46,5 +46,6 @@ Images.pushImage('Logo-big-4.png', require('./../../assets/images/Logo-big-4.png
 Images.pushImage('Logo-big-5.png', require('./../../assets/images/Logo-big-5.png'));
 Images.pushImage('Cleverious-big.png', require('./../../assets/images/Cleverious-big.png'));
 Images.pushImage('home-page-bg.png', require('./../../assets/images/home-page-bg.png'));
+Images.pushImage('sekai.jpg', require('./../../assets/images/sekai.jpg'));
 
 module.exports = Images;

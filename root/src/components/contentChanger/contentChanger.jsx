@@ -59,7 +59,7 @@ var Changer = React.createClass({
           </div>
         </Portal>
         {React.Children.map(this.props.children, (element, idx) => {
-          var classNames = classnames('page-changer-item', {active: idx == this.state.current})
+          var classNames = classnames('page-changer-item', element.props.name, {active: idx == this.state.current});
           return (
             <div className={classNames} ref={(c) => {
               if (!this.items[`item_${idx}`]) {

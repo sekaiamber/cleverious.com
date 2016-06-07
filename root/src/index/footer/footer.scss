@@ -12,6 +12,9 @@
   bottom: 75px;
   z-index: -10;
   text-align: center;
+  opacity: 0;
+  transition: all ease 300ms;
+  transition-delay: 100ms;
   img {
     height: 50px;
     width: 50px;
