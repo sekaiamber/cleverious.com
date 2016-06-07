@@ -46,6 +46,7 @@ body {
       display: table-cell;
       vertical-align: middle;
       width: 100%;
+      box-sizing: border-box;
     }
   }
   .velocity-span {
@@ -60,7 +61,7 @@ body {
     .page-changer {
       height: 100%;
       .page-changer-item {
-        height: 100%;
+        min-height: 600px;
         position: relative;
         display: table !important;
         table-layout: fixed;
@@ -71,24 +72,31 @@ body {
 }
 // Logo page
 body.logo {
-  .footer-image {
-    display: none;
-  }
+  
+}
+.page-changer-item.logo {
+  height: 100%;
 }
 
 // clothes page
 body.clothes {
+  .page-changer-anchor.active {
+    color: rgb(64, 64, 85);
+  }
+}
+.page-changer-item.clothes {
+  height: 100%;
+}
+
+// about page
+body.about {
   .footer-image {
-    display: none;
+    opacity: 1;
   }
   .page-changer-anchor.active {
     color: rgb(64, 64, 85);
   }
 }
-
-// about page
-body.about {
-  .page-changer-anchor.active {
-    color: rgb(64, 64, 85);
-  }
+.page-changer-item.about {
+  height: 600px;
 }

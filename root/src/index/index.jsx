@@ -37,6 +37,7 @@ var Index = React.createClass({
     if (auto) {
       let self = this;
       this.autoScrolling = true;
+      $('body').addClass('scrolling');
       $(this.mainPage).stop().animate({
         scrollTop: this.offsets[idx],
       }, {
@@ -44,6 +45,7 @@ var Index = React.createClass({
         // easing: 'easeInOutQuart',
         complete: () => {
           self.autoScrolling = false;
+          $('body').removeClass('scrolling');
         }
       });
     }
@@ -54,8 +56,8 @@ var Index = React.createClass({
   },
   handleWindowResize(pages) {
     for (var i = 0; i < pages.length - 1; i++) {
-      this.offsets[i + 1] = this.offsets[i] + $(pages[i]).outerHeight();
-      this.offsetsMid[i] = this.offsets[i] + $(pages[i]).outerHeight() / 2;
+      this.offsets[i + 1] = this.offsets[i] + pages[i].offsetHeight;
+      this.offsetsMid[i] = this.offsets[i] + pages[i].offsetHeight / 2;
     }
   },
   componentDidMount() {
@@ -100,7 +102,6 @@ var Index = React.createClass({
                 footer={<Footer />}
               >
                 <PageContainer name="logo"><Logo delay={1000}/></PageContainer>
-                <PageContainer name="clothes"><Clothes /></PageContainer>
                 <PageContainer name="about"><About /></PageContainer>
               </Changer>
             }
