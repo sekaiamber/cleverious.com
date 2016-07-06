@@ -1,26 +1,40 @@
+import { Spin } from 'antd';
+
 const React = require('react');
 const classnames = require('classnames');
-const Images = require('../../../components/Images');
 const jsonp = require('../../../components/jsonp');
+const Showcase = require('./showcase');
 require('./clothes.scss');
 
 var Clothes = React.createClass({
 
   getInitialState() {
     return {
-      loading: true
+      loading: true,
+      totalPage: 1,
     };
   },
   componentDidMount() {
     // get overview
+    let self = this;
     jsonp('overview').done(function (data) {
-      console.log(data);
+      let series = data.series;
+      let cleverious = series.cleverious;
+      self.setState({
+        total: cleverious.count,
+        defaultPageSize: data.countPerPage,
+        loading: false,
+      }, () => {
+        self.showcase.setSeries('cleverious');
+      });
     });
   },
   render: function () {
     return (
       <div className="page-clothes">
-        展示页面
+        <Spin spinning={this.state.loading}>
+          <Showcase total={this.state.total} defaultPageSize={this.state.defaultPageSize} ref={(c) => this.showcase = c} onLoading={(c) => this.setState({loading: false})}/>
+        </Spin>
       </div>
     )
   }
