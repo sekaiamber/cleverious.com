@@ -102,6 +102,7 @@ var Index = React.createClass({
                 footer={<Footer />}
               >
                 <PageContainer name="logo"><Logo delay={1000}/></PageContainer>
+                <PageContainer name="clothes"><Clothes /></PageContainer>
                 <PageContainer name="about"><About /></PageContainer>
               </Changer>
             }

@@ -1,4 +1,31 @@
 .page-container.clothes {
   background: #fff;
   color: #666;
+  .ant-spin.ant-spin-spinning {
+    left: 0;
+  }
+  .page-clothes-showcase {
+    min-height: 300px;
+    box-sizing: border-box;
+    padding: 0 50px;
+
+    .page-clothes-showcase-cards {
+      height: 640px;
+      .showcase-card-container {
+        width: 33%;
+        float: left;
+        margin-bottom: 20px;
+        .showcase-card {
+          width: 200px;
+          height: 300px;
+          margin: 0 auto;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .page-clothes-showcase-pageing {
+      text-align: center;
+    }
+  }
 }
