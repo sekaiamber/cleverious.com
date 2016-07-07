@@ -1,3 +1,5 @@
+$anime_delay: 100ms;
+
 .page-container.clothes {
   background: #fff;
   color: #666;
@@ -20,6 +22,20 @@
           height: 300px;
           margin: 0 auto;
           cursor: pointer;
+          .cloth-tags {
+            span {
+              margin: 0 3px;
+            }
+          }
+        }
+
+        &.empty {
+          .showcase-card {
+            border: dashed 1px #ABABA1;
+            border-radius: 6px;
+            cursor: default;
+            background-image: url('./../../../../assets/images/clothcomingsoon.png');
+          }
         }
       }
     }
@@ -28,4 +44,32 @@
       text-align: center;
     }
   }
+}
+
+// anime
+.page-container.clothes {
+  .page-clothes-showcase-cards .showcase-card-container,
+  .pagination {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 300ms ease;
+  }
+}
+body.clothes:not(.scrolling) {
+  .page-container.clothes {
+    .page-clothes-showcase-cards .showcase-card-container,
+    .pagination {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+.page-container.clothes {
+  .page-clothes-showcase-cards .showcase-card-container.card0 { transition-delay: 0 }
+  .page-clothes-showcase-cards .showcase-card-container.card1 { transition-delay: $anime_delay*1 }
+  .page-clothes-showcase-cards .showcase-card-container.card2 { transition-delay: $anime_delay*2 }
+  .page-clothes-showcase-cards .showcase-card-container.card3 { transition-delay: $anime_delay*3 }
+  .page-clothes-showcase-cards .showcase-card-container.card4 { transition-delay: $anime_delay*4 }
+  .page-clothes-showcase-cards .showcase-card-container.card5 { transition-delay: $anime_delay*5 }
+  .pagination { transition-delay: $anime_delay*6 }
 }
