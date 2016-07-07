@@ -1,7 +1,9 @@
-import { Spin, Pagination, Card } from 'antd';
+import { Spin, Card } from 'antd';
 const React = require('react');
 const classnames = require('classnames');
 const jsonp = require('../../../components/jsonp');
+const Pagination = require('../../../components/pagination/pagination');
+const ClothCard = require('./clothCard');
 
 var Showcase = React.createClass({
   getDefaultProps() {
@@ -43,23 +45,19 @@ var Showcase = React.createClass({
     return (
       <div className="page-clothes-showcase">
         <div className="page-clothes-showcase-cards">
-          {
-            this.state.clothes.map((c, i) =>
-              <div className="showcase-card-container" key={i}>
-                <Card bodyStyle={{ padding: 0 }} className="showcase-card">
-                  <div className="custom-image">
-                    <img alt="example" width="100%" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
-                  </div>
-                  <div className="custom-card">
-                    <h3>Europe Street beat</h3>
-                    <p>www.instagram.com</p>
-                  </div>
-                </Card>
-              </div>
-            )
-          }
+          {(() => {
+            let clothes = [];
+            for (var i = 0; i < this.props.defaultPageSize; i++) {
+              if (i < this.state.clothes.length) {
+                clothes.push(<ClothCard key={i} className={"card" + i} cloth={this.state.clothes[i]}/>)
+              } else {
+                clothes.push(<ClothCard key={i} className={"card" + i} />)
+              }
+            }
+            return clothes;
+          })()}
         </div>
-        <Pagination className="page-clothes-showcase-pageing" defaultCurrent={1} total={this.props.total} defaultPageSize={this.props.defaultPageSize} />
+        <Pagination className="page-clothes-showcase-pageing" defaultCurrent={1} total={this.props.total} defaultPageSize={this.props.defaultPageSize} onChange={this.setPage}/>
       </div>
     )
   }
