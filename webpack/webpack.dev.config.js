@@ -61,7 +61,9 @@ var config = {
     },
     resolve: {
       extensions: ['', '.js', '.json', '.jsx'],
-      alias: {}
+      alias: {
+        antd: "antd/dist/antd.min.js"
+      }
     },
     devtool: 'eval-source-map',
     jshint: {
@@ -81,6 +83,9 @@ var config = {
       //   }
       // }
     },
+    externals: { 
+      jquery: "jQuery"
+    }
 };
 
 module.exports = config;

@@ -26,15 +26,15 @@ var config = {
           warnings: false
         }
       }),
-      new webpack.optimize.MinChunkSizePlugin({minChunkSize: 20000}),
-      new webpack.optimize.OccurenceOrderPlugin(false),
-      new webpack.optimize.AggressiveMergingPlugin({
-            minSizeReduce: 1.5,
-            moveToParents: true
-      }),
+      // new webpack.optimize.MinChunkSizePlugin({minChunkSize: 20000}),
+      // new webpack.optimize.OccurenceOrderPlugin(false),
+      // new webpack.optimize.AggressiveMergingPlugin({
+      //       minSizeReduce: 1.5,
+      //       moveToParents: true
+      // }),
       new CommonsChunkPlugin('vendors', 'vendors.[hash].js', Infinity),
       new ExtractTextPlugin("[name].[hash].css"),
-      new webpack.optimize.DedupePlugin(),
+      // new webpack.optimize.DedupePlugin(),
       new HtmlWebpackPlugin({
         template: './../templates/index.html',
         filename: 'index.html',
@@ -70,7 +70,13 @@ var config = {
   },
   resolve: {
     // 設定後只需要寫 require('file') 而不用寫成 require('file.jsx')
-    extensions: ['', '.js', '.json', '.jsx']
+    extensions: ['', '.js', '.json', '.jsx'],
+    alias: {
+      antd: "antd/dist/antd.min.js"
+    }
+  },
+  externals: { 
+    jquery: "jQuery"
   }
 };
 
