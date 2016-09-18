@@ -11,7 +11,7 @@
   "scripts": {
     "build": "webpack --progress --colors --watch --config webpack/webpack.dev.config.js",
     "dev": "webpack-dev-server --progress --colors --display-error-details --inline --hot --content-base root/build --config webpack/webpack.dev.config.js",
-    "deploy": "NODE_ENV=production webpack -p --display-error-details --config webpack/webpack.depoly.config.js"
+    "deploy": "NODE_ENV=production webpack --progress --colors --profile --display-modules -p --display-error-details --config webpack/webpack.depoly.config.js"
   },
   "devDependencies": {
     "autoprefixer-loader": "3.2.0",
@@ -34,7 +34,7 @@
     "sass-loader": "3.1.2",
     "style-loader": "0.13.0",
     "url-loader": "0.5.7",
-    "webpack": "1.12.14",
+    "webpack": "^1.13.2",
     "webpack-dev-server": "1.14.1"
   },
   "keywords": [
@@ -45,7 +45,6 @@
     "classnames": "^2.2.5",
     "echarts": "3.1.3",
     "extract-text-webpack-plugin": "1.0.1",
-    "jquery": "^2.2.4",
     "particles.js": "2.0.0",
     "path": "0.12.7",
     "rc-queue-anim": "^0.11.9",
