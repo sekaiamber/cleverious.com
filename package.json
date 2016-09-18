@@ -11,7 +11,7 @@
   "scripts": {
     "build": "webpack --progress --colors --watch --config webpack/webpack.dev.config.js",
     "dev": "webpack-dev-server --progress --colors --display-error-details --inline --hot --content-base root/build --config webpack/webpack.dev.config.js",
-    "deploy": "NODE_ENV=production webpack --progress --colors -p --display-error-details --config webpack/webpack.depoly.config.js"
+    "deploy": "NODE_ENV=production webpack --progress --colors --profile --display-modules --json > stats.json -p --display-error-details --config webpack/webpack.depoly.config.js"
   },
   "devDependencies": {
     "autoprefixer-loader": "3.2.0",
