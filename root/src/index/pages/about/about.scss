@@ -26,6 +26,7 @@ $anime_delay: 100ms;
     .page-about-member {
       float: left;
       width: 100%/$member_count;
+      margin-bottom: 30px;
       .avatar {
         height: 120px;
         width: 120px;
@@ -63,9 +64,7 @@ $anime_delay: 100ms;
   .page-about h1,
   .text1,
   .text2,
-  .page-about-member.SEKAI,
-  .page-about-member.FATE,
-  .page-about-member.YOU {
+  .page-about-member {
     transform: translateY(20px);
     opacity: 0;
     transition: all 300ms ease;
@@ -76,9 +75,7 @@ body.about:not(.scrolling) {
     .page-about h1,
     .text1,
     .text2,
-    .page-about-member.SEKAI,
-    .page-about-member.FATE,
-    .page-about-member.YOU {
+    .page-about-member {
       transform: translateY(0);
       opacity: 1;
     }
@@ -90,5 +87,7 @@ body.about:not(.scrolling) {
   .text2 { transition-delay: $anime_delay*2 }
   .page-about-member.SEKAI { transition-delay: $anime_delay*3 }
   .page-about-member.FATE { transition-delay: $anime_delay*4 }
-  .page-about-member.YOU { transition-delay: $anime_delay*5 }
+  .page-about-member.SBN { transition-delay: $anime_delay*5 }
+  .page-about-member.LC { transition-delay: $anime_delay*6 }
+  .page-about-member.YOU { transition-delay: $anime_delay*7 }
 }

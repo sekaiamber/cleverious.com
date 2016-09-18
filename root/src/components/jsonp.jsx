@@ -8,7 +8,9 @@ module.exports = function (url, opt) {
     callback = opt;
     opt = {}
   }
+  let callbackp;
   if (!url.startsWith('http') && api[url]) {
+    callbackp = url;
     let _url = api[url];
     for (var prop in opt) {
       if (opt.hasOwnProperty(prop)) {
@@ -21,6 +23,6 @@ module.exports = function (url, opt) {
     url: url,
     dataType: "jsonp",
     jsonp: "callback",
-    jsonpCallback: "callback",
+    jsonpCallback: (callbackp ? (callbackp + "_") : "") + "callback",
   });
 };

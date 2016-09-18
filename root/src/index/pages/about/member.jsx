@@ -11,7 +11,7 @@ var Member = React.createClass({
   render: function () {
     return (
       <div className={`page-about-member ${this.props.name}`}>
-        <div className="avatar"><img src={Images[this.props.avatar].src} /></div>
+        <div className="avatar"><img src={this.props.avatar} /></div>
         <h2 className="name">{this.props.name}</h2>
         <i></i>
         <p className="description">{this.props.description}</p>
