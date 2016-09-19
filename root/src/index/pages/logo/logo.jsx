@@ -19,7 +19,6 @@ var Logo = React.createClass({
           <div key="b" className="logo-text">
             <img src={Images['Cleverious-big.png'].src} />
           </div>
-          <div key="c" className="logo-coming-soon">= Coming Soon =</div>
         </QueueAnim>
       </div>
     )
