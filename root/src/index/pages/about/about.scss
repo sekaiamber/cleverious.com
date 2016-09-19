@@ -85,9 +85,9 @@ body.about:not(.scrolling) {
   .page-about h1 { transition-delay: 0 }
   .text1 { transition-delay: $anime_delay*1 }
   .text2 { transition-delay: $anime_delay*2 }
-  .page-about-member.SEKAI { transition-delay: $anime_delay*3 }
-  .page-about-member.FATE { transition-delay: $anime_delay*4 }
-  .page-about-member.SBN { transition-delay: $anime_delay*5 }
-  .page-about-member.LC { transition-delay: $anime_delay*6 }
+  .page-about-member.m1 { transition-delay: $anime_delay*3 }
+  .page-about-member.m2 { transition-delay: $anime_delay*4 }
+  .page-about-member.m3 { transition-delay: $anime_delay*5 }
+  .page-about-member.m4 { transition-delay: $anime_delay*6 }
   .page-about-member.YOU { transition-delay: $anime_delay*7 }
 }
