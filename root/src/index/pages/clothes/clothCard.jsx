@@ -27,22 +27,26 @@ var ClothCard = React.createClass({
   render: function () {
     if (!this.props.cloth) {
       return (
-        <div className={"showcase-card-container empty " + this.props.className}>
-          <div className="showcase-card"></div>
+        <div className="col-sm-6 col-md-4">
+          <div className={"showcase-card-container empty " + this.props.className}>
+            <div className="showcase-card"></div>
+          </div>
         </div>
       )
     }
     return (
-      <div className={"showcase-card-container " + this.props.className} >
-        <Card bodyStyle={{ padding: 0 }} className="showcase-card" onClick={this.handleClick}>
-          <div className="custom-image">
-            <img width="100%" src={this.props.cloth.images[0]} />
-          </div>
-          <div className="custom-card">
-            <h3>{this.props.cloth.title}</h3>
-            <p className="cloth-tags">{this.props.cloth.tags.split(',').map((v, i) => <span key={i}>{v}</span>)}</p>
-          </div>
-        </Card>
+      <div className="col-sm-6 col-md-4">
+        <div className={"showcase-card-container " + this.props.className} >
+          <Card bodyStyle={{ padding: 0 }} className="showcase-card" onClick={this.handleClick}>
+            <div className="custom-image">
+              <img width="100%" src={this.props.cloth.images[0]} />
+            </div>
+            <div className="custom-card">
+              <h5>{this.props.cloth.title}</h5>
+              <p className="cloth-tags">{this.props.cloth.tags.split(',').map((v, i) => <span key={i}>{v}</span>)}</p>
+            </div>
+          </Card>
+        </div>
       </div>
     )
   }

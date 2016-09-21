@@ -56,8 +56,8 @@ var Index = React.createClass({
   },
   handleWindowResize(pages) {
     for (var i = 0; i < pages.length - 1; i++) {
-      this.offsets[i + 1] = this.offsets[i] + pages[i].offsetHeight;
-      this.offsetsMid[i] = this.offsets[i] + pages[i].offsetHeight / 2;
+      this.offsets[i + 1] = this.offsets[i] + $(pages[i]).outerHeight();
+      this.offsetsMid[i] = this.offsets[i + 1] - $('body').outerHeight() / 2;
     }
   },
   componentDidMount() {

@@ -44,7 +44,7 @@ var Showcase = React.createClass({
   render: function () {
     return (
       <div className="page-clothes-showcase">
-        <div className="page-clothes-showcase-cards">
+        <div className="page-clothes-showcase-cards row">
           {(() => {
             let clothes = [];
             for (var i = 0; i < this.props.defaultPageSize; i++) {

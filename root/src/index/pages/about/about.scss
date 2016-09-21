@@ -1,31 +1,33 @@
-$member_count: 3;
 $anime_delay: 100ms;
 
 .page-container.about {
   background: #ececec;
   color: #666;
-  padding: 20px 50px;
-  h1 {
-    padding: 20px 0;
+  padding: 20px;
+  .page-about-title {
+    margin: 50px 0 30px 0;
   }
   .text1 {
-    width: 600px;
+    max-width: 600px;
     margin: 10px auto;
     text-align: justify;
   }
   .text2 {
-    width: 600px;
+    max-width: 600px;
     margin: 10px auto;
     text-align: right;
     color: #aaa;
   }
+  .page-about-title,
+  .text1,
+  .text2 {
+    padding: 0 50px;
+  }
   .members {
     box-sizing: border-box;
-    padding: 0 100px;
-    margin: 50px 0 0 0;
+    max-width: 1000px;
+    margin: 50px auto 0 auto;
     .page-about-member {
-      float: left;
-      width: 100%/$member_count;
       margin-bottom: 30px;
       .avatar {
         height: 120px;
@@ -61,7 +63,7 @@ $anime_delay: 100ms;
 
 // anime
 .page-container.about {
-  .page-about h1,
+  .page-about-title,
   .text1,
   .text2,
   .page-about-member {
@@ -72,7 +74,7 @@ $anime_delay: 100ms;
 }
 body.about:not(.scrolling) {
   .page-container.about {
-    .page-about h1,
+    .page-about-title,
     .text1,
     .text2,
     .page-about-member {
@@ -82,7 +84,7 @@ body.about:not(.scrolling) {
   }
 }
 .page-container.about {
-  .page-about h1 { transition-delay: 0 }
+  .page-about-title { transition-delay: 0 }
   .text1 { transition-delay: $anime_delay*1 }
   .text2 { transition-delay: $anime_delay*2 }
   .page-about-member.m1 { transition-delay: $anime_delay*3 }

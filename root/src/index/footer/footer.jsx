@@ -18,9 +18,14 @@ var Footer = React.createClass({
             <img src={Images['Logo-big-1.png'].src}/>
           </div>
         </Portal>
-        Copyright © 2016 The Project by CLEVERIOUS. All Rights Reserved
-        <br />
-        Shanghai, China
+        <div className="footer-copyright md">
+          Copyright © 2016 The Project by CLEVERIOUS. All Rights Reserved
+          <br />
+          Shanghai, China
+        </div>
+        <div className="footer-copyright xs">
+          Copyright © 2016 CLEVERIOUS.
+        </div>
       </div>
     )
   }
