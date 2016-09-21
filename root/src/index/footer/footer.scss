@@ -5,6 +5,10 @@
   padding-top: 85px;
   color: #aaa;
   line-height: 24px;
+
+  .footer-copyright {
+    display: none;
+  }
 }
 .footer-image {
   width: 100%;
@@ -18,5 +22,16 @@
   img {
     height: 50px;
     width: 50px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+  .footer-copyright.xs {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .footer-copyright.md {
+    display: block;
   }
 }

@@ -10,9 +10,9 @@ var Member = React.createClass({
   },
   render: function () {
     return (
-      <div className={`page-about-member m${this.props.index}`}>
+      <div className={`page-about-member m${this.props.index} col-xs-6 col-sm-6 col-md-4`}>
         <div className="avatar"><img src={this.props.avatar} /></div>
-        <h2 className="name">{this.props.name}</h2>
+        <h3 className="name"><small>{this.props.name}</small></h3>
         <i></i>
         <p className="description">{this.props.description}</p>
       </div>

@@ -9,22 +9,27 @@ $anime_delay: 100ms;
   .page-clothes-showcase {
     min-height: 300px;
     box-sizing: border-box;
-    padding: 0 50px;
+    padding: 50px;
 
     .page-clothes-showcase-cards {
-      height: 640px;
+      max-width: 1000px;
+      margin: 0 auto;
       .showcase-card-container {
-        width: 33%;
-        float: left;
         margin-bottom: 20px;
         .showcase-card {
           width: 200px;
           height: 300px;
           margin: 0 auto;
           cursor: pointer;
-          .cloth-tags {
-            span {
-              margin: 0 3px;
+          .custom-card {
+            h5 {
+              margin: 5px 0;
+              font-weight: bold;
+            }
+            .cloth-tags {
+              span {
+                margin: 0 3px;
+              }
             }
           }
           .custom-image {
@@ -50,6 +55,23 @@ $anime_delay: 100ms;
 
     .page-clothes-showcase-pageing {
       text-align: center;
+    }
+  }
+}
+
+@media (min-width: 0px) {
+  .page-container.clothes {
+    .page-clothes-showcase {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .page-container.clothes {
+    .page-clothes-showcase {
+      padding-left: 50px;
+      padding-right: 50px;
     }
   }
 }
