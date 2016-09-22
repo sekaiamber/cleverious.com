@@ -6,6 +6,8 @@ const jsonp = require('../../../components/jsonp');
 const Showcase = require('./showcase');
 require('./clothes.scss');
 
+const database = require('_database');
+
 var Clothes = React.createClass({
 
   getInitialState() {
@@ -17,17 +19,27 @@ var Clothes = React.createClass({
   componentDidMount() {
     // get overview
     let self = this;
-    jsonp('overview').done(function (data) {
-      let series = data.series;
-      let cleverious = series.cleverious;
-      self.setState({
-        total: cleverious.count,
-        defaultPageSize: data.countPerPage,
-        loading: false,
-      }, () => {
-        self.showcase.setSeries('cleverious');
-      });
+    let data = database.clothes.overview;
+    let series = data.series;
+    let cleverious = series.cleverious;
+    self.setState({
+      total: cleverious.count,
+      defaultPageSize: data.countPerPage,
+      loading: false,
+    }, () => {
+      self.showcase.setSeries('cleverious');
     });
+    // jsonp('overview').done(function (data) {
+    //   let series = data.series;
+    //   let cleverious = series.cleverious;
+    //   self.setState({
+    //     total: cleverious.count,
+    //     defaultPageSize: data.countPerPage,
+    //     loading: false,
+    //   }, () => {
+    //     self.showcase.setSeries('cleverious');
+    //   });
+    // });
   },
   render: function () {
     return (

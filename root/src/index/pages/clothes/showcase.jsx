@@ -5,6 +5,8 @@ const jsonp = require('../../../components/jsonp');
 const Pagination = require('../../../components/pagination/pagination');
 const ClothCard = require('./clothCard');
 
+const database = require('_database');
+
 var Showcase = React.createClass({
   getDefaultProps() {
     return {
@@ -31,14 +33,18 @@ var Showcase = React.createClass({
   setPage(page) {
     page = page || 1;
     let self = this;
-    jsonp('clothes', {
-      series: this.state.series,
-      page: page
-    }).done((data) => {
-      self.setState({
-        clothes: data
-      })
-    });
+    let data = database.clothes.series[this.state.series][page - 1];
+    this.setState({
+      clothes: data
+    })
+    // jsonp('clothes', {
+    //   series: this.state.series,
+    //   page: page
+    // }).done((data) => {
+    //   self.setState({
+    //     clothes: data
+    //   })
+    // });
     this.props.onLoading();
   },
   render: function () {
