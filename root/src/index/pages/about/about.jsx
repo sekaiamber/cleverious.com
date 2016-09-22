@@ -1,9 +1,11 @@
 const React = require('react');
 const classnames = require('classnames');
 const Member = require('./member');
-const jsonp = require('../../../components/jsonp');
+// const jsonp = require('../../../components/jsonp');
 import { Popover } from 'antd';
 require('./about.scss');
+
+const database = require('_database');
 
 const joinus = (
   <div>
@@ -13,11 +15,14 @@ const joinus = (
 
 var About = React.createClass({
   componentDidMount() {
-    jsonp('members').done((data) => {
-      this.setState({
-        members: data
-      })
-    });
+    // jsonp('members').done((data) => {
+    //   this.setState({
+    //     members: data
+    //   })
+    // });
+    this.setState({
+      members: database.members
+    })
   },
   getInitialState() {
     return {
