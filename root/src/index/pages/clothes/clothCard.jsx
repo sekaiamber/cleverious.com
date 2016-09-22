@@ -18,11 +18,11 @@ var ClothCard = React.createClass({
     // 
   },
   handleClick(e) {
-    let url = this.props.cloth.purchase;
-    if (!url.startsWith('http')) {
-      url = 'http:\/\/' + url;
-    }
-    window.open(url);
+    // let url = this.props.cloth.purchase;
+    // if (!url.startsWith('http')) {
+    //   url = 'http:\/\/' + url;
+    // }
+    // window.open(url);
   },
   render: function () {
     if (!this.props.cloth) {
@@ -37,12 +37,16 @@ var ClothCard = React.createClass({
     return (
       <div className="col-sm-6 col-md-4">
         <div className={"showcase-card-container " + this.props.className} >
-          <Card bodyStyle={{ padding: 0 }} className="showcase-card" onClick={this.handleClick}>
+          <Card bodyStyle={{ padding: 0 }} className="showcase-card">
             <div className="custom-image">
-              <img width="100%" src={this.props.cloth.images[0]} />
+              <a href={this.props.cloth.purchase}>
+                <img width="100%" src={this.props.cloth.images[0]} />
+              </a>
             </div>
             <div className="custom-card">
-              <h5>{this.props.cloth.title}</h5>
+              <a href={this.props.cloth.purchase}>
+                <h5>{this.props.cloth.title}1</h5>
+              </a>
               <p className="cloth-tags">{this.props.cloth.tags.split(',').map((v, i) => <span key={i}>{v}</span>)}</p>
             </div>
           </Card>
