@@ -45,7 +45,7 @@ var ClothCard = React.createClass({
             </div>
             <div className="custom-card">
               <a href={this.props.cloth.purchase}>
-                <h5>{this.props.cloth.title}1</h5>
+                <h5>{this.props.cloth.title}</h5>
               </a>
               <p className="cloth-tags">{this.props.cloth.tags.split(',').map((v, i) => <span key={i}>{v}</span>)}</p>
             </div>
